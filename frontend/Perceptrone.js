@@ -10,12 +10,14 @@ define([], function(){
             },
             sigma: function(x) {
                 x = x/that.sigmaNormalizator;
-                return	(1 / ( 1 + Math.pow( Math.E, -x ))) >= that.sigmaLimit;
+                that.sigmaResult = (1 / ( 1 + Math.pow( Math.E, -x )));
+                return	that.sigmaResult >= that.sigmaLimit;
             }
         };
 
         this.sum = 0;
         this.result = false;
+        this.sigmaResult = 0;
         this.name = "";
 
         return this;

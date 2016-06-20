@@ -71,7 +71,8 @@ define(["jquery"], function($) {
                 Object.keys(pList).forEach(function(key) {
                     pList[key].setInputs(data);
                     pList[key].name = key;
-                    results += "<div>" + key + ": " + pList[key].exec().toString() + "</div>";
+                    var res = pList[key].exec().toString();
+                    results += "<div class='" + (res) + "'>" + key + ": " + res +" (" + ((pList[key].sigmaResult*100).toFixed(2)) + " %)</div>";
                 });
                 $("#Per_select_elem").val("inputs");
                 $("#Per_select").trigger('change');

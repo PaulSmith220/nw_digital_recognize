@@ -74,6 +74,8 @@ body {
         opacity: 0.7; }
     body .container .draw-block #mini-result {
       padding: 5px 10px; }
+      body .container .draw-block #mini-result .true {
+        background: #90d984; }
 
 canvas {
   image-rendering: optimizeSpeed;

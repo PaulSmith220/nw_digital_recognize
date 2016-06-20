@@ -15,6 +15,9 @@ require(["Perceptrone", "jquery", "js_add/events"], function(Perceptrone, $, Eve
 
     for (var i = 0; i < 10; i++) {
         pList[i] = new Perceptrone("sigma");
+        pList[i].sigmaLimit = 0.7;
+        pList[i].sigmaNormalizator = 1;
+
     }
 
     $(function() {
@@ -30,7 +33,7 @@ require(["Perceptrone", "jquery", "js_add/events"], function(Perceptrone, $, Eve
                 Canvas.Clear();
                 ctx.drawImage($img, 0, 0, 150, 200);
                 previewCtx.drawImage($img, 0, 0, 15, 20);
-
+                $(".draw-block .recognize").click();
             });
         });
 
