@@ -1,0 +1,27 @@
+{
+  "name": "digits",
+  "version": "1.0.0",
+  "description": "1 layer perceptrone newro-web to recognize digits",
+  "main": "frontend/index.html",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "png-js": "^0.1.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.1",
+    "gulp-autoprefixer": "*",
+    "gulp-connect": "*",
+    "gulp-rimraf": "^0.2.0",
+    "gulp-sass": "*",
+    "gulp-watch": "*",
+    "opn": "*",
+    "rimraf": "*",
+    "bower": "*"
+    },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "PaulSmith",
+  "license": "ISC"
+}

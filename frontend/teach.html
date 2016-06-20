@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<META http-equiv="content-type" content="text/html; charset=utf-8">
+	<title>Perceptron teach</title>
+	<link rel="stylesheet" href="style.css"/>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="teach.js"></script>
+</head>
+<body onload="init()">
+	<div class="container">
+		<div class="painter">
+			<canvas id="canvas" width="150" height="200"></canvas>
+		</div>
+		<div class="controls">
+			<button id="clearBtn" onclick="clearCanvas()">Очистить</button>
+			<button id="checkBtn">Оценить</button>
+			<button id="genBtn" onclick="getNW()">Generate</button>
+			<button id="saveBtn" onclick="saveImage()">Save</button>
+		</div>
+	</div>
+</body>
+</html>

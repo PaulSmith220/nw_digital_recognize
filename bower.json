@@ -1,0 +1,21 @@
+{
+  "name": "digits",
+  "version": "0.0.0",
+  "authors": [
+    "p.kuznecov <kuznetps@gmail.com>"
+  ],
+  "description": "1 layer newro-web to recognize digits",
+  "main": "frontend/index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+    "dependencies": {
+      "jquery": "2.2.2",
+      "requirejs": "2.2.0"
+    }
+}
