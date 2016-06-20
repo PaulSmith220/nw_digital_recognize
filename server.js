@@ -11,7 +11,7 @@ var NW_Layer = {};
 http.createServer(function(request, response) {
 
 	if(request.url === "/index" || request.url === "/"){
-		sendFileContent(response, "index.html", "text/html");
+		sendFileContent(response, "teach.html", "text/html");
 	} 
 	else if (request.url === "/upload") {
 		  var body = "";

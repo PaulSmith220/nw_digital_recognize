@@ -11,7 +11,7 @@ define(["jquery"], function($) {
                     if (i != 0 && i%15 == 0) {
                         $rows += "</tr>\n<tr>";
                     }
-                    $rows += "<td data-val='" + w_arr[i] +  "'>" + w_arr[i] + "</td>\n";
+                    $rows += "<td data-val='" + (w_arr[i] > 0 ? '1' : (w_arr[i] < 0 ? '-1' : '0')) +  "'>" + w_arr[i] + "</td>\n";
 
                 }
 
@@ -70,12 +70,36 @@ define(["jquery"], function($) {
                 var results = "";
                 Object.keys(pList).forEach(function(key) {
                     pList[key].setInputs(data);
+                    pList[key].name = key;
                     results += "<div>" + key + ": " + pList[key].exec().toString() + "</div>";
                 });
                 $("#Per_select_elem").val("inputs");
                 $("#Per_select").trigger('change');
 
                 $("#mini-result").html(results);
+            });
+
+            var _correcting = false;
+            $(".draw-block .correct").on('click', function() {
+                if (!_correcting) {
+                    _correcting = true;
+                    var answer = prompt("Answer: ", 1);
+                    console.log("ANswer: " + answer);
+                    if (answer) {
+                        Object.keys(pList).forEach(function (key) {
+                            pList[key].correctWeights(
+                                key == answer
+                            );
+                            console.log(key, answer, key == answer);
+                        });
+
+                        $("#Per_select_elem").val("weights");
+                        $("#Per_select").trigger('change');
+                    }
+                    setTimeout(function() {
+                        _correcting = false;
+                    }, 1000);
+                }
             });
 
             function getBinArray() {
@@ -94,11 +118,15 @@ define(["jquery"], function($) {
                 previewCnv: previewCnv,
                 previewCtx: previewCtx,
                 Clear: function(C) {
-                    var w = C.Element.width;
-                    C.Element.width = 10;
-                    C.Element.width = w;
-                    C.Context.lineWidth = 30;
-                    C.Context.lineJoin = ctx.lineCap = 'round';
+                    var w = cnv.width;
+                    cnv.width = 10;
+                    cnv.width = w;
+                    ctx.lineWidth = 30;
+                    ctx.lineJoin = ctx.lineCap = 'round';
+
+                    previewCnv.width = 2;
+                    previewCnv.width = 15;
+                    previewCtx.imageSmoothingEnabled = false;
                 },
                 getData: getBinArray
             }

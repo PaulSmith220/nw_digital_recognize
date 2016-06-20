@@ -70,10 +70,10 @@ Perceptrone.prototype.correctWeights = function(estimatedResult) {
 	if (estimatedResult == undefined) {
 		throw Error("You should set estimatedResult to correctWeights");
 	}
-	if (this.result != estimatedResult || this.result == false) {
+	if (this.result != estimatedResult && this.result == false) {
 		this.FN_Correction();
 	}
-	if (this.result != estimatedResult || this.result == true) {
+	if (this.result != estimatedResult && this.result == true) {
 		this.FP_Correction();
 	}
 	return this;

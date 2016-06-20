@@ -48,8 +48,19 @@ body {
         position: relative;
 
         #memoryTable {
+          color: white;
+          td {
+            text-align: center;
+          }
+
           td[data-val="1"] {
+            background: #bd6460;
+          }
+          td[data-val="0"] {
             background: #bdbdbd;
+          }
+          td[data-val="-1"] {
+            background: #6566bd;
           }
         }
       }

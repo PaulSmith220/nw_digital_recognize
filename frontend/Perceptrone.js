@@ -54,6 +54,7 @@ define([], function(){
 
 
     Perceptrone.prototype.FN_Correction = function() {
+        console.log(this.name + ": FN");
         for (var i = 0; i < this.inputs.length; i++) {
             this.weights[i] += this.inputs[i];
         }
@@ -61,6 +62,7 @@ define([], function(){
     };
 
     Perceptrone.prototype.FP_Correction = function() {
+        console.log(this.name + ": FP");
         for (var i = 0; i < this.inputs.length; i++) {
             this.weights[i] -= this.inputs[i];
         }
@@ -71,10 +73,10 @@ define([], function(){
         if (estimatedResult == undefined) {
             throw Error("You should set estimatedResult to correctWeights");
         }
-        if (this.result != estimatedResult || this.result == false) {
+        if (this.result != estimatedResult && this.result == false) {
             this.FN_Correction();
         }
-        if (this.result != estimatedResult || this.result == true) {
+        if (this.result != estimatedResult && this.result == true) {
             this.FP_Correction();
         }
         return this;

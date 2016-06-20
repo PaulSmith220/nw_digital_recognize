@@ -13,7 +13,7 @@ require(["Perceptrone", "jquery", "js_add/events"], function(Perceptrone, $, Eve
     window.Perceptrone = Perceptrone;
     var library = [];
 
-    for (var i = 0; i <= 1; i++) {
+    for (var i = 0; i < 10; i++) {
         pList[i] = new Perceptrone("sigma");
     }
 
@@ -25,6 +25,13 @@ require(["Perceptrone", "jquery", "js_add/events"], function(Perceptrone, $, Eve
                     return "<img src='../images/" + img + "' data-digit='" + item + "'/>";
                 }).join("\n");
             }).join("\n"));
+            $(".train-library img").on('click', function(){
+                var $img = $(this).get(0);
+                Canvas.Clear();
+                ctx.drawImage($img, 0, 0, 150, 200);
+                previewCtx.drawImage($img, 0, 0, 15, 20);
+
+            });
         });
 
         $.get("../p_array.json", function(data) {
@@ -40,3 +47,10 @@ require(["Perceptrone", "jquery", "js_add/events"], function(Perceptrone, $, Eve
         Canvas.Clear(Canvas);
     });
 });
+
+function wToJSON() {
+    return "\n{\n" + Object.keys(pList).map(function(p){
+            return '"' + p + '": {"weights":[' + pList[p].weights.join(", ") + "]}";
+        }).join(",\n") + "\n}\n";
+
+}

@@ -28,8 +28,16 @@ body {
       padding-bottom: 10px; }
     body .container .memory-block .memory {
       position: relative; }
-      body .container .memory-block .memory #memoryTable td[data-val="1"] {
-        background: #bdbdbd; }
+      body .container .memory-block .memory #memoryTable {
+        color: white; }
+        body .container .memory-block .memory #memoryTable td {
+          text-align: center; }
+        body .container .memory-block .memory #memoryTable td[data-val="1"] {
+          background: #bd6460; }
+        body .container .memory-block .memory #memoryTable td[data-val="0"] {
+          background: #bdbdbd; }
+        body .container .memory-block .memory #memoryTable td[data-val="-1"] {
+          background: #6566bd; }
     body .container .memory-block .preview {
       float: right;
       width: 15px;
