@@ -11,7 +11,7 @@ define(["jquery"], function($) {
                     if (i != 0 && i%15 == 0) {
                         $rows += "</tr>\n<tr>";
                     }
-                    $rows += "<td data-val='" + (w_arr[i] > 0 ? '1' : (w_arr[i] < 0 ? '-1' : '0')) +  "'>" + w_arr[i] + "</td>\n";
+                    $rows += "<td data-val='" + (w_arr[i]) +  "'>" + w_arr[i] + "</td>\n";
 
                 }
 

@@ -65,13 +65,66 @@ body {
           }
 
           td[data-val="1"] {
-            background: #bd6460;
+            background: #bd9f9f;
           }
+          td[data-val="2"] {
+            background: #cc9394;
+          }
+          td[data-val="3"] {
+            background: #cc746f;
+          }
+          td[data-val="4"] {
+            background: #cc5652;
+          }
+          td[data-val="5"] {
+            background: #cc352d;
+          }
+          td[data-val="6"] {
+            background: #dd0a07;
+          }
+
+          td[data-val="7"],
+          td[data-val="8"],
+          td[data-val="9"],
+          td[data-val="10"],
+          td[data-val="11"],
+          td[data-val="12"],
+          td[data-val="13"],
+          td[data-val="14"]{
+            background: #ff0a07;
+          }
+
+
           td[data-val="0"] {
             background: #bdbdbd;
           }
           td[data-val="-1"] {
-            background: #6566bd;
+            background: #a4a5bd;
+          }
+          td[data-val="-2"] {
+            background: #918ebd;
+          }
+          td[data-val="-3"] {
+            background: #7272bd;
+          }
+          td[data-val="-4"] {
+            background: #514dbd;
+          }
+          td[data-val="-5"] {
+            background: #2d2cbd;
+          }
+          td[data-val="-6"] {
+            background: #00017b;
+          }
+          td[data-val="-7"],
+          td[data-val="-8"],
+          td[data-val="-9"],
+          td[data-val="-10"],
+          td[data-val="-11"],
+          td[data-val="-12"],
+          td[data-val="-13"],
+          td[data-val="-14"]{
+            background: #000130;
           }
         }
       }
