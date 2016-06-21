@@ -8,6 +8,8 @@
 <body>
 
 <div class="container">
+    <span onclick="iterateImages()">++</span>
+    <span onclick="resetIterator()">reset</span>
     <div class="train-library block">
 
     </div>
@@ -34,9 +36,12 @@
         <div class="btn clear">Очистить</div>
         <div class="btn recognize">Распознать</div>
         <div class="btn correct">Корректировать</div>
+        <div id="mvn"></div>
         <div id="mini-result"></div>
     </div>
 </div>
+
+<div id="getWeights">json</div>
 
 </body>
 </html>

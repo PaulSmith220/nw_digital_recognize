@@ -15,8 +15,8 @@ require(["Perceptrone", "jquery", "js_add/events"], function(Perceptrone, $, Eve
 
     for (var i = 0; i < 10; i++) {
         pList[i] = new Perceptrone("sigma");
-        pList[i].sigmaLimit = 0.7;
-        pList[i].sigmaNormalizator = 1;
+        pList[i].sigmaLimit = 0.501;
+        pList[i].sigmaNormalizator = 200;
 
     }
 
@@ -34,6 +34,9 @@ require(["Perceptrone", "jquery", "js_add/events"], function(Perceptrone, $, Eve
                 ctx.drawImage($img, 0, 0, 150, 200);
                 previewCtx.drawImage($img, 0, 0, 15, 20);
                 $(".draw-block .recognize").click();
+
+                $(".train-library img").removeClass('active');
+                $(this).addClass('active');
             });
         });
 
@@ -48,12 +51,25 @@ require(["Perceptrone", "jquery", "js_add/events"], function(Perceptrone, $, Eve
 
         Canvas = Events.setCanvasDrawMode();
         Canvas.Clear(Canvas);
+
+        var wToJSON = function() {
+            return "\n{\n" + Object.keys(pList).map(function(p){
+                    return '"' + p + '": {"weights":[' + pList[p].weights.join(", ") + "]}";
+                }).join(",\n") + "\n}\n";
+
+        };
+        $("#getWeights").on('click', function(){
+            console.log(wToJSON());
+        });
     });
 });
 
-function wToJSON() {
-    return "\n{\n" + Object.keys(pList).map(function(p){
-            return '"' + p + '": {"weights":[' + pList[p].weights.join(", ") + "]}";
-        }).join(",\n") + "\n}\n";
 
+window.iterator = 1;
+function iterateImages() {
+    $(".train-library img:nth-child(" + (window.iterator++) +")").click()
+}
+
+function resetIterator() {
+    window.iterator = 1;
 }

@@ -43,6 +43,7 @@ define(["jquery"], function($) {
                 ctx.stroke();
                 window.drawing = false;
                 drawPreview();
+                $(".draw-block .recognize").click();
             };
 
             cnv.onmousemove = function(e) {
@@ -74,10 +75,13 @@ define(["jquery"], function($) {
                     var res = pList[key].exec().toString();
                     results += "<div class='" + (res) + "'>" + key + ": " + res +" (" + ((pList[key].sigmaResult*100).toFixed(2)) + " %)</div>";
                 });
-                $("#Per_select_elem").val("inputs");
+                //$("#Per_select_elem").val("inputs");
                 $("#Per_select").trigger('change');
 
                 $("#mini-result").html(results);
+                $("#mvn").html(Object.keys(pList).reduce(function(s, key){
+                    return pList[key].sigmaResult > pList[s].sigmaResult ? key : s;
+                }, 0));
             });
 
             var _correcting = false;
@@ -85,13 +89,11 @@ define(["jquery"], function($) {
                 if (!_correcting) {
                     _correcting = true;
                     var answer = prompt("Answer: ", 1);
-                    console.log("ANswer: " + answer);
                     if (answer) {
                         Object.keys(pList).forEach(function (key) {
                             pList[key].correctWeights(
                                 key == answer
                             );
-                            console.log(key, answer, key == answer);
                         });
 
                         $("#Per_select_elem").val("weights");

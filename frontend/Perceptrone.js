@@ -56,7 +56,6 @@ define([], function(){
 
 
     Perceptrone.prototype.FN_Correction = function() {
-        console.log(this.name + ": FN");
         for (var i = 0; i < this.inputs.length; i++) {
             this.weights[i] += this.inputs[i];
         }
@@ -64,7 +63,6 @@ define([], function(){
     };
 
     Perceptrone.prototype.FP_Correction = function() {
-        console.log(this.name + ": FP");
         for (var i = 0; i < this.inputs.length; i++) {
             this.weights[i] -= this.inputs[i];
         }

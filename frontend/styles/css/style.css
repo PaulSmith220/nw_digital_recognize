@@ -21,6 +21,11 @@ body {
         width: 22%;
         margin: 0.5%;
         border: 1px solid #666666; }
+        body .container .train-library img:hover, body .container .train-library img.active {
+          box-shadow: 0 0 5px red;
+          cursor: pointer; }
+        body .container .train-library img.active {
+          box-shadow: 0 0 5px #00d512; }
     body .container .memory-block #Per_select {
       width: 50px; }
     body .container .memory-block .title {
@@ -29,7 +34,8 @@ body {
     body .container .memory-block .memory {
       position: relative; }
       body .container .memory-block .memory #memoryTable {
-        color: white; }
+        color: white;
+        margin-right: 55px; }
         body .container .memory-block .memory #memoryTable td {
           text-align: center; }
         body .container .memory-block .memory #memoryTable td[data-val="1"] {
@@ -72,10 +78,17 @@ body {
       cursor: pointer; }
       body .container .draw-block .btn:hover {
         opacity: 0.7; }
-    body .container .draw-block #mini-result {
+    body .container .draw-block #mini-result, body .container .draw-block #mvn {
       padding: 5px 10px; }
-      body .container .draw-block #mini-result .true {
+      body .container .draw-block #mini-result .true, body .container .draw-block #mvn .true {
         background: #90d984; }
+    body .container .draw-block #mvn {
+      text-align: center;
+      font-weight: bold;
+      background: white;
+      margin-top: 10px;
+      font-size: 20px;
+      border: 3px solid #000; }
 
 canvas {
   image-rendering: optimizeSpeed;
@@ -90,3 +103,11 @@ canvas {
   /* Awesome future-browsers       */
   -ms-interpolation-mode: nearest-neighbor;
   /* IE                            */ }
+
+#getWeights {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 5px 10px;
+  border: 1px solid #8d8d8d;
+  cursor: pointer; }

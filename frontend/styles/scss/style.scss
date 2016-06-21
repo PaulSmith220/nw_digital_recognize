@@ -31,6 +31,15 @@ body {
         width: 22%;
         margin: 0.5%;
         border: 1px solid #666666;
+
+        &:hover, &.active {
+          box-shadow: 0 0 5px red;
+          cursor: pointer;
+        }
+
+        &.active {
+          box-shadow: 0 0 5px #00d512;
+        }
       }
     }
 
@@ -49,6 +58,8 @@ body {
 
         #memoryTable {
           color: white;
+          margin-right: 55px;
+
           td {
             text-align: center;
           }
@@ -110,11 +121,20 @@ body {
         }
       }
 
-      #mini-result {
+      #mini-result, #mvn {
         padding: 5px 10px;
         .true {
           background: #90d984;
         }
+      }
+
+      #mvn {
+        text-align: center;
+        font-weight: bold;
+        background: white;
+        margin-top: 10px;
+        font-size: 20px;
+        border: 3px solid #000;
       }
     }
   }
@@ -127,4 +147,13 @@ canvas {
   image-rendering: -o-crisp-edges;            /* OS X & Windows Opera (12.02+) */
   image-rendering: pixelated;                 /* Awesome future-browsers       */
   -ms-interpolation-mode: nearest-neighbor;   /* IE                            */
+}
+
+#getWeights {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 5px 10px;
+  border: 1px solid #8d8d8d;
+  cursor: pointer;
 }
