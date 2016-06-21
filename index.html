@@ -1,0 +1,47 @@
+<html>
+<head>
+    <META http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Perceptron test</title>
+    <link rel="stylesheet" href="styles/css/style.css"/>
+    <script data-main="main" src="require.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <span onclick="iterateImages()">++</span>
+    <span onclick="resetIterator()">reset</span>
+    <div class="train-library block">
+
+    </div>
+    <div class="memory-block block">
+        <div class="title">Состояние перцептрона
+            <select id="Per_select"></select>
+            <select id="Per_select_elem">
+                <option selected value="weights">Веса</option>
+                <option value="inputs">Входы</option>
+            </select>
+        </div>
+        <div class="memory">
+            <div class="result" id="Per_result"></div>
+            <div class="preview">
+                <canvas id="preview"></canvas>
+            </div>
+
+            <table id="memoryTable">
+            </table>
+        </div>
+    </div>
+    <div class="block draw-block">
+        <canvas id="canvas"></canvas>
+        <div class="btn clear">Очистить</div>
+        <div class="btn recognize">Распознать</div>
+        <div class="btn correct">Корректировать</div>
+        <div id="mvn"></div>
+        <div id="mini-result"></div>
+    </div>
+</div>
+
+<div id="getWeights">json</div>
+
+</body>
+</html>
