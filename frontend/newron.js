@@ -1,5 +1,5 @@
 define([], function(){
-    var Perceptrone = function(type) {
+    var newron = function(type) {
         this.type = type == 'sigma' ? type : 'linear';
         this.sigmaLimit = 0.6;
         this.sigmaNormalizator = 1;
@@ -23,18 +23,18 @@ define([], function(){
         return this;
     };
 
-    Perceptrone.prototype.setWeights = function(arr) {
+    newron.prototype.setWeights = function(arr) {
         this.weights = arr;
         return this;
     };
 
-    Perceptrone.prototype.setInputs = function(arr) {
+    newron.prototype.setInputs = function(arr) {
         this.inputs = arr;
         return this;
     };
 
 
-    Perceptrone.prototype.calcSum = function() {
+    newron.prototype.calcSum = function() {
         this.sum = 0;
         for (var i = 0; i < this.inputs.length; i++) {
             this.sum += this.inputs[i] * this.weights[i];
@@ -43,33 +43,33 @@ define([], function(){
     };
 
 
-    Perceptrone.prototype.estimate = function() {
+    newron.prototype.estimate = function() {
         this.result = this.estimationFunctions[this.type](this.sum);
         return this.result;
     };
 
-    Perceptrone.prototype.exec = function() {
+    newron.prototype.exec = function() {
         this.calcSum();
         return this.estimate();
     };
 
 
 
-    Perceptrone.prototype.FN_Correction = function() {
+    newron.prototype.FN_Correction = function() {
         for (var i = 0; i < this.inputs.length; i++) {
             this.weights[i] += this.inputs[i];
         }
         return this;
     };
 
-    Perceptrone.prototype.FP_Correction = function() {
+    newron.prototype.FP_Correction = function() {
         for (var i = 0; i < this.inputs.length; i++) {
             this.weights[i] -= this.inputs[i];
         }
         return this;
     };
 
-    Perceptrone.prototype.correctWeights = function(estimatedResult) {
+    newron.prototype.correctWeights = function(estimatedResult) {
         if (estimatedResult == undefined) {
             throw Error("You should set estimatedResult to correctWeights");
         }
@@ -82,5 +82,5 @@ define([], function(){
         return this;
     };
 
-    return Perceptrone;
+    return newron;
 });

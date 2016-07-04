@@ -17,7 +17,7 @@ require(["newron", "jquery", "js_add/events"], function(newron, $, Events) {
         pList[i] = new newron("sigma");
         pList[i].sigmaLimit = 0.501;
         pList[i].sigmaNormalizator = 200;
-
+        pList[i].weights = [];
     }
 
     $(function() {
@@ -42,12 +42,15 @@ require(["newron", "jquery", "js_add/events"], function(newron, $, Events) {
 
         $.get("../p_array.json", function(data) {
             Object.keys(data).forEach(function(key) {
-               pList[key].weights = data[key].weights;
+                for (var n = 0; n < 300; n++) {
+                    pList[key].weights[n] = 0;
+                }
                 $("#Per_select").append("<option data-number='" + key + "'>" + key + "</option>");
                 Events.setPer_selectEvent();
 
             });
         } );
+
 
         Canvas = Events.setCanvasDrawMode();
         Canvas.Clear(Canvas);
